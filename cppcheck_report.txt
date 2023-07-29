@@ -1,0 +1,593 @@
+frozen.c:574:9: warning: snprintf format string requires 0 parameters but 1 is given. [wrongPrintfScanfArgNum]
+        snprintf(buf, sizeof(buf), fmt2, val);
+        ^
+frozen.c:866:49: error: Pointer addition with NULL pointer. [nullPointerArithmetic]
+  char *send = (char *) src + slen, *dend = dst + dlen, *orig_dst = dst, *p;
+                                                ^
+frozen.c:949:67: note: Calling function 'json_unescape', 3rd argument 'NULL' value is 0
+        int unescaped_len = json_unescape(token->ptr, token->len, NULL, 0);
+                                                                  ^
+frozen.c:866:49: note: Null pointer addition
+  char *send = (char *) src + slen, *dend = dst + dlen, *orig_dst = dst, *p;
+                                                ^
+frozen.c:573:59: style: Same expression in both branches of ternary operator. [duplicateExpressionTernary]
+        const char *fmt2 = fmt[3] == 'u' ? "%" UINT64_FMT : "%" INT64_FMT;
+                                                          ^
+frozen.c:693:45: style: Same expression on both sides of '||' because 'n+1==(int)strlen("%"PRId64)&&strcmp(fmt2,"%"PRId64)==0' and 'n+1==(int)strlen("%"PRIu64)&&strcmp(fmt2,"%"PRIu64)==0' represent the same value. [knownConditionTrueFalse]
+             strcmp(fmt2, "%" PRId64) == 0) ||
+                                            ^
+frozen.c:235:7: style: The scope of the variable 'n' can be reduced. [variableScope]
+  int n, ch = 0, len = 0;
+      ^
+frozen.c:235:18: style: The scope of the variable 'len' can be reduced. [variableScope]
+  int n, ch = 0, len = 0;
+                 ^
+frozen.c:295:7: style: The scope of the variable 'i' can be reduced. [variableScope]
+  int i = 0, current_path_len;
+      ^
+frozen.c:295:14: style: The scope of the variable 'current_path_len' can be reduced. [variableScope]
+  int i = 0, current_path_len;
+             ^
+frozen.c:296:8: style: The scope of the variable 'buf' can be reduced. [variableScope]
+  char buf[20];
+       ^
+frozen.c:967:11: style: The scope of the variable 'i' can be reduced. [variableScope]
+      int i, len = token->len / 2;
+          ^
+frozen.c:438:51: style:inconclusive: Function 'json_escape' argument 2 names different: declaration 'str' definition 'p'. [funcArgNamesDifferent]
+int json_escape(struct json_out *out, const char *p, size_t len) {
+                                                  ^
+frozen.h:243:51: note: Function 'json_escape' argument 2 names different: declaration 'str' definition 'p'.
+int json_escape(struct json_out *out, const char *str, size_t str_len);
+                                                  ^
+frozen.c:438:51: note: Function 'json_escape' argument 2 names different: declaration 'str' definition 'p'.
+int json_escape(struct json_out *out, const char *p, size_t len) {
+                                                  ^
+frozen.c:438:61: style:inconclusive: Function 'json_escape' argument 3 names different: declaration 'str_len' definition 'len'. [funcArgNamesDifferent]
+int json_escape(struct json_out *out, const char *p, size_t len) {
+                                                            ^
+frozen.h:243:63: note: Function 'json_escape' argument 3 names different: declaration 'str_len' definition 'len'.
+int json_escape(struct json_out *out, const char *str, size_t str_len);
+                                                              ^
+frozen.c:438:61: note: Function 'json_escape' argument 3 names different: declaration 'str_len' definition 'len'.
+int json_escape(struct json_out *out, const char *p, size_t len) {
+                                                            ^
+frozen.c:557:65: style:inconclusive: Function 'json_vprintf' argument 3 names different: declaration 'ap' definition 'xap'. [funcArgNamesDifferent]
+int json_vprintf(struct json_out *out, const char *fmt, va_list xap) {
+                                                                ^
+frozen.h:159:62: note: Function 'json_vprintf' argument 3 names different: declaration 'ap' definition 'xap'.
+int json_vprintf(struct json_out *, const char *fmt, va_list ap);
+                                                             ^
+frozen.c:557:65: note: Function 'json_vprintf' argument 3 names different: declaration 'ap' definition 'xap'.
+int json_vprintf(struct json_out *out, const char *fmt, va_list xap) {
+                                                                ^
+frozen.c:844:73: style:inconclusive: Function 'json_scanf_array_elem' argument 4 names different: declaration 'index' definition 'idx'. [funcArgNamesDifferent]
+int json_scanf_array_elem(const char *s, int len, const char *path, int idx,
+                                                                        ^
+frozen.h:227:73: note: Function 'json_scanf_array_elem' argument 4 names different: declaration 'index' definition 'idx'.
+int json_scanf_array_elem(const char *s, int len, const char *path, int index,
+                                                                        ^
+frozen.c:844:73: note: Function 'json_scanf_array_elem' argument 4 names different: declaration 'index' definition 'idx'.
+int json_scanf_array_elem(const char *s, int len, const char *path, int idx,
+                                                                        ^
+frozen.c:1036:29: style:inconclusive: Function 'json_vscanf' argument 1 names different: declaration 'str' definition 's'. [funcArgNamesDifferent]
+int json_vscanf(const char *s, int len, const char *fmt, va_list ap) {
+                            ^
+frozen.h:217:29: note: Function 'json_vscanf' argument 1 names different: declaration 'str' definition 's'.
+int json_vscanf(const char *str, int str_len, const char *fmt, va_list ap);
+                            ^
+frozen.c:1036:29: note: Function 'json_vscanf' argument 1 names different: declaration 'str' definition 's'.
+int json_vscanf(const char *s, int len, const char *fmt, va_list ap) {
+                            ^
+frozen.c:1036:36: style:inconclusive: Function 'json_vscanf' argument 2 names different: declaration 'str_len' definition 'len'. [funcArgNamesDifferent]
+int json_vscanf(const char *s, int len, const char *fmt, va_list ap) {
+                                   ^
+frozen.h:217:38: note: Function 'json_vscanf' argument 2 names different: declaration 'str_len' definition 'len'.
+int json_vscanf(const char *str, int str_len, const char *fmt, va_list ap);
+                                     ^
+frozen.c:1036:36: note: Function 'json_vscanf' argument 2 names different: declaration 'str_len' definition 'len'.
+int json_vscanf(const char *s, int len, const char *fmt, va_list ap) {
+                                   ^
+frozen.c:1092:37: style:inconclusive: Function 'json_scanf' argument 2 names different: declaration 'str_len' definition 'len'. [funcArgNamesDifferent]
+int json_scanf(const char *str, int len, const char *fmt, ...) {
+                                    ^
+frozen.h:216:37: note: Function 'json_scanf' argument 2 names different: declaration 'str_len' definition 'len'.
+int json_scanf(const char *str, int str_len, const char *fmt, ...);
+                                    ^
+frozen.c:1092:37: note: Function 'json_scanf' argument 2 names different: declaration 'str_len' definition 'len'.
+int json_scanf(const char *str, int len, const char *fmt, ...) {
+                                    ^
+frozen.c:1125:30: style:inconclusive: Function 'json_fread' argument 1 names different: declaration 'file_name' definition 'path'. [funcArgNamesDifferent]
+char *json_fread(const char *path) {
+                             ^
+frozen.h:249:30: note: Function 'json_fread' argument 1 names different: declaration 'file_name' definition 'path'.
+char *json_fread(const char *file_name);
+                             ^
+frozen.c:1125:30: note: Function 'json_fread' argument 1 names different: declaration 'file_name' definition 'path'.
+char *json_fread(const char *path) {
+                             ^
+frozen.c:937:15: style: union member 'Anonymous3::p' is never used. [unusedStructMember]
+        void *p;
+              ^
+frozen.c:561:3: error: va_list 'ap' used before va_start() was called. [va_list_usedBeforeStarted]
+  va_copy(ap, xap);
+  ^
+frozen.c:572:30: error: va_list 'ap' used before va_start() was called. [va_list_usedBeforeStarted]
+        int64_t val = va_arg(ap, int64_t);
+                             ^
+frozen.c:578:29: error: va_list 'ap' used before va_start() was called. [va_list_usedBeforeStarted]
+        size_t val = va_arg(ap, size_t);
+                            ^
+frozen.c:583:43: error: va_list 'ap' used before va_start() was called. [va_list_usedBeforeStarted]
+        json_printf_callback_t f = va_arg(ap, json_printf_callback_t);
+                                          ^
+frozen.c:584:24: error: va_list 'ap' used before va_start() was called. [va_list_usedBeforeStarted]
+        len += f(out, &ap);
+                       ^
+frozen.c:586:26: error: va_list 'ap' used before va_start() was called. [va_list_usedBeforeStarted]
+        int val = va_arg(ap, int);
+                         ^
+frozen.c:592:27: error: va_list 'ap' used before va_start() was called. [va_list_usedBeforeStarted]
+        int i, n = va_arg(ap, int);
+                          ^
+frozen.c:593:41: error: va_list 'ap' used before va_start() was called. [va_list_usedBeforeStarted]
+        const unsigned char *p = va_arg(ap, const unsigned char *);
+                                        ^
+frozen.c:603:41: error: va_list 'ap' used before va_start() was called. [va_list_usedBeforeStarted]
+        const unsigned char *p = va_arg(ap, const unsigned char *);
+                                        ^
+frozen.c:604:24: error: va_list 'ap' used before va_start() was called. [va_list_usedBeforeStarted]
+        int n = va_arg(ap, int);
+                       ^
+frozen.c:615:31: error: va_list 'ap' used before va_start() was called. [va_list_usedBeforeStarted]
+          l = (size_t) va_arg(ap, int);
+                              ^
+frozen.c:618:20: error: va_list 'ap' used before va_start() was called. [va_list_usedBeforeStarted]
+        p = va_arg(ap, char *);
+                   ^
+frozen.c:652:9: error: va_list 'ap' used before va_start() was called. [va_list_usedBeforeStarted]
+        va_copy(ap_copy, ap);
+        ^
+frozen.c:676:13: error: va_list 'ap' used before va_start() was called. [va_list_usedBeforeStarted]
+            va_copy(ap_copy, ap);
+            ^
+frozen.c:696:25: error: va_list 'ap' used before va_start() was called. [va_list_usedBeforeStarted]
+          (void) va_arg(ap, int64_t);
+                        ^
+frozen.c:698:25: error: va_list 'ap' used before va_start() was called. [va_list_usedBeforeStarted]
+          (void) va_arg(ap, int);
+                        ^
+frozen.c:699:25: error: va_list 'ap' used before va_start() was called. [va_list_usedBeforeStarted]
+          (void) va_arg(ap, char *);
+                        ^
+frozen.c:704:29: error: va_list 'ap' used before va_start() was called. [va_list_usedBeforeStarted]
+              (void) va_arg(ap, int);
+                            ^
+frozen.c:741:3: error: va_list 'ap' used before va_start() was called. [va_list_usedBeforeStarted]
+  va_end(ap);
+  ^
+frozen.c:652:9: error: va_list 'ap_copy' used before va_start() was called. [va_list_usedBeforeStarted]
+        va_copy(ap_copy, ap);
+        ^
+frozen.c:653:48: error: va_list 'ap_copy' used before va_start() was called. [va_list_usedBeforeStarted]
+        need_len = vsnprintf(pbuf, size, fmt2, ap_copy);
+                                               ^
+frozen.c:654:9: error: va_list 'ap_copy' used before va_start() was called. [va_list_usedBeforeStarted]
+        va_end(ap_copy);
+        ^
+frozen.c:676:13: error: va_list 'ap_copy' used before va_start() was called. [va_list_usedBeforeStarted]
+            va_copy(ap_copy, ap);
+            ^
+frozen.c:677:49: error: va_list 'ap_copy' used before va_start() was called. [va_list_usedBeforeStarted]
+            vsnprintf(pbuf, need_len + 1, fmt2, ap_copy);
+                                                ^
+frozen.c:678:13: error: va_list 'ap_copy' used before va_start() was called. [va_list_usedBeforeStarted]
+            va_end(ap_copy);
+            ^
+frozen.c:437:0: information: Skipping configuration 'WEAK' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+int json_escape(struct json_out *out, const char *p, size_t len) WEAK;
+^
+frozen.c:466:0: information: Skipping configuration 'WEAK' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+int json_printer_buf(struct json_out *out, const char *buf, size_t len) WEAK;
+^
+frozen.c:480:0: information: Skipping configuration 'WEAK' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+int json_printer_file(struct json_out *out, const char *buf, size_t len) WEAK;
+^
+frozen.c:556:0: information: Skipping configuration 'WEAK' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+int json_vprintf(struct json_out *out, const char *fmt, va_list xap) WEAK;
+^
+frozen.c:746:0: information: Skipping configuration 'WEAK' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+int json_printf(struct json_out *out, const char *fmt, ...) WEAK;
+^
+frozen.c:756:0: information: Skipping configuration 'WEAK' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+int json_printf_array(struct json_out *out, va_list *ap) WEAK;
+^
+frozen.c:806:0: information: Skipping configuration 'WEAK' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+              json_walk_callback_t callback, void *callback_data) WEAK;
+^
+frozen.c:843:0: information: Skipping configuration 'WEAK' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+                          struct json_token *token) WEAK;
+^
+frozen.c:864:0: information: Skipping configuration 'WEAK' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+int json_unescape(const char *src, int slen, char *dst, int dlen) WEAK;
+^
+frozen.c:1035:0: information: Skipping configuration 'WEAK' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+int json_vscanf(const char *s, int len, const char *fmt, va_list ap) WEAK;
+^
+frozen.c:1091:0: information: Skipping configuration 'WEAK' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+int json_scanf(const char *str, int len, const char *fmt, ...) WEAK;
+^
+frozen.c:1101:0: information: Skipping configuration 'WEAK' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+int json_vfprintf(const char *file_name, const char *fmt, va_list ap) WEAK;
+^
+frozen.c:1114:0: information: Skipping configuration 'WEAK' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+int json_fprintf(const char *file_name, const char *fmt, ...) WEAK;
+^
+frozen.c:1124:0: information: Skipping configuration 'WEAK' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+char *json_fread(const char *path) WEAK;
+^
+frozen.c:1205:0: information: Skipping configuration 'WEAK' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+               const char *json_path, const char *json_fmt, va_list ap) WEAK;
+^
+frozen.c:1262:0: information: Skipping configuration 'WEAK' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+              const char *json_path, const char *json_fmt, ...) WEAK;
+^
+frozen.c:1338:0: information: Skipping configuration 'WEAK' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+int json_prettify(const char *s, int len, struct json_out *out) WEAK;
+^
+frozen.c:1344:0: information: Skipping configuration 'WEAK' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+int json_prettify_file(const char *file_name) WEAK;
+^
+frozen.c:1429:0: information: Skipping configuration 'WEAK' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+                    struct json_token *key, struct json_token *val) WEAK;
+^
+frozen.c:1436:0: information: Skipping configuration 'WEAK' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+                     int *idx, struct json_token *val) WEAK;
+^
+frozen.c:1454:0: information: Skipping configuration 'WEAK' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+char *json_vasprintf(const char *fmt, va_list ap) WEAK;
+^
+frozen.c:1463:0: information: Skipping configuration 'WEAK' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+char *json_asprintf(const char *fmt, ...) WEAK;
+^
+frozen.c:437:0: information: Skipping configuration 'WEAK;_WIN32;__GNUC__;__TI_COMPILER_VERSION__' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+int json_escape(struct json_out *out, const char *p, size_t len) WEAK;
+^
+frozen.c:466:0: information: Skipping configuration 'WEAK;_WIN32;__GNUC__;__TI_COMPILER_VERSION__' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+int json_printer_buf(struct json_out *out, const char *buf, size_t len) WEAK;
+^
+frozen.c:480:0: information: Skipping configuration 'WEAK;_WIN32;__GNUC__;__TI_COMPILER_VERSION__' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+int json_printer_file(struct json_out *out, const char *buf, size_t len) WEAK;
+^
+frozen.c:556:0: information: Skipping configuration 'WEAK;_WIN32;__GNUC__;__TI_COMPILER_VERSION__' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+int json_vprintf(struct json_out *out, const char *fmt, va_list xap) WEAK;
+^
+frozen.c:746:0: information: Skipping configuration 'WEAK;_WIN32;__GNUC__;__TI_COMPILER_VERSION__' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+int json_printf(struct json_out *out, const char *fmt, ...) WEAK;
+^
+frozen.c:756:0: information: Skipping configuration 'WEAK;_WIN32;__GNUC__;__TI_COMPILER_VERSION__' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+int json_printf_array(struct json_out *out, va_list *ap) WEAK;
+^
+frozen.c:784:0: information: Skipping configuration 'WEAK;_WIN32;__GNUC__;__TI_COMPILER_VERSION__' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+                     va_list ap) WEAK;
+^
+frozen.c:794:0: information: Skipping configuration 'WEAK;_WIN32;__GNUC__;__TI_COMPILER_VERSION__' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+int cs_win_snprintf(char *str, size_t size, const char *format, ...) WEAK;
+^
+frozen.c:806:0: information: Skipping configuration 'WEAK;_WIN32;__GNUC__;__TI_COMPILER_VERSION__' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+              json_walk_callback_t callback, void *callback_data) WEAK;
+^
+frozen.c:843:0: information: Skipping configuration 'WEAK;_WIN32;__GNUC__;__TI_COMPILER_VERSION__' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+                          struct json_token *token) WEAK;
+^
+frozen.c:864:0: information: Skipping configuration 'WEAK;_WIN32;__GNUC__;__TI_COMPILER_VERSION__' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+int json_unescape(const char *src, int slen, char *dst, int dlen) WEAK;
+^
+frozen.c:1035:0: information: Skipping configuration 'WEAK;_WIN32;__GNUC__;__TI_COMPILER_VERSION__' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+int json_vscanf(const char *s, int len, const char *fmt, va_list ap) WEAK;
+^
+frozen.c:1091:0: information: Skipping configuration 'WEAK;_WIN32;__GNUC__;__TI_COMPILER_VERSION__' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+int json_scanf(const char *str, int len, const char *fmt, ...) WEAK;
+^
+frozen.c:1101:0: information: Skipping configuration 'WEAK;_WIN32;__GNUC__;__TI_COMPILER_VERSION__' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+int json_vfprintf(const char *file_name, const char *fmt, va_list ap) WEAK;
+^
+frozen.c:1114:0: information: Skipping configuration 'WEAK;_WIN32;__GNUC__;__TI_COMPILER_VERSION__' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+int json_fprintf(const char *file_name, const char *fmt, ...) WEAK;
+^
+frozen.c:1124:0: information: Skipping configuration 'WEAK;_WIN32;__GNUC__;__TI_COMPILER_VERSION__' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+char *json_fread(const char *path) WEAK;
+^
+frozen.c:1205:0: information: Skipping configuration 'WEAK;_WIN32;__GNUC__;__TI_COMPILER_VERSION__' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+               const char *json_path, const char *json_fmt, va_list ap) WEAK;
+^
+frozen.c:1262:0: information: Skipping configuration 'WEAK;_WIN32;__GNUC__;__TI_COMPILER_VERSION__' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+              const char *json_path, const char *json_fmt, ...) WEAK;
+^
+frozen.c:1338:0: information: Skipping configuration 'WEAK;_WIN32;__GNUC__;__TI_COMPILER_VERSION__' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+int json_prettify(const char *s, int len, struct json_out *out) WEAK;
+^
+frozen.c:1344:0: information: Skipping configuration 'WEAK;_WIN32;__GNUC__;__TI_COMPILER_VERSION__' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+int json_prettify_file(const char *file_name) WEAK;
+^
+frozen.c:1429:0: information: Skipping configuration 'WEAK;_WIN32;__GNUC__;__TI_COMPILER_VERSION__' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+                    struct json_token *key, struct json_token *val) WEAK;
+^
+frozen.c:1436:0: information: Skipping configuration 'WEAK;_WIN32;__GNUC__;__TI_COMPILER_VERSION__' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+                     int *idx, struct json_token *val) WEAK;
+^
+frozen.c:1454:0: information: Skipping configuration 'WEAK;_WIN32;__GNUC__;__TI_COMPILER_VERSION__' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+char *json_vasprintf(const char *fmt, va_list ap) WEAK;
+^
+frozen.c:1463:0: information: Skipping configuration 'WEAK;_WIN32;__GNUC__;__TI_COMPILER_VERSION__' since the value of 'WEAK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+char *json_asprintf(const char *fmt, ...) WEAK;
+^
+frozen.c:937:15: style: union member 'Anonymous4::p' is never used. [unusedStructMember]
+        void *p;
+              ^
+frozen.c:812:28: error: Pointer addition with NULL pointer. [nullPointerArithmetic]
+  frozen.end = json_string + json_string_length;
+                           ^
+unit_test.c:122:3: note: Calling function 'json_walk', 1st argument 'NULL' value is 0
+  ASSERT(json_walk(NULL, 0, NULL, 0) == JSON_STRING_INVALID);
+  ^
+frozen.c:812:28: note: Null pointer addition
+  frozen.end = json_string + json_string_length;
+                           ^
+unit_test.c:937:8: style: The scope of the variable 'buf' can be reduced. [variableScope]
+  char buf[200];
+       ^
+unit_test.c:509:19: style: Local variable 'str' shadows outer variable [shadowVariable]
+      const char* str = "{a:{b:4},c:5}";
+                  ^
+unit_test.c:496:15: note: Shadowed declaration
+  const char *str =
+              ^
+unit_test.c:509:19: note: Shadow variable
+      const char* str = "{a:{b:4},c:5}";
+                  ^
+unit_test.c:510:11: style: Local variable 'b' shadows outer variable [shadowVariable]
+      int b = 0, c=0;
+          ^
+unit_test.c:494:14: note: Shadowed declaration
+  int a = 0, b = 0;
+             ^
+unit_test.c:510:11: note: Shadow variable
+      int b = 0, c=0;
+          ^
+unit_test.c:516:19: style: Local variable 'str' shadows outer variable [shadowVariable]
+      const char* str = "{a:{b:4},c:\"abc\"}";
+                  ^
+unit_test.c:496:15: note: Shadowed declaration
+  const char *str =
+              ^
+unit_test.c:516:19: note: Shadow variable
+      const char* str = "{a:{b:4},c:\"abc\"}";
+                  ^
+unit_test.c:517:11: style: Local variable 'b' shadows outer variable [shadowVariable]
+      int b = 0;
+          ^
+unit_test.c:494:14: note: Shadowed declaration
+  int a = 0, b = 0;
+             ^
+unit_test.c:517:11: note: Shadow variable
+      int b = 0;
+          ^
+unit_test.c:525:19: style: Local variable 'str' shadows outer variable [shadowVariable]
+      const char* str = "{a:{b:{c:4}},d:\"abc\"}";
+                  ^
+unit_test.c:496:15: note: Shadowed declaration
+  const char *str =
+              ^
+unit_test.c:525:19: note: Shadow variable
+      const char* str = "{a:{b:{c:4}},d:\"abc\"}";
+                  ^
+unit_test.c:527:13: style: Local variable 'd' shadows outer variable [shadowVariable]
+      char* d = NULL;
+            ^
+unit_test.c:495:9: note: Shadowed declaration
+  char *d = NULL;
+        ^
+unit_test.c:527:13: note: Shadow variable
+      char* d = NULL;
+            ^
+unit_test.c:534:19: style: Local variable 'str' shadows outer variable [shadowVariable]
+      const char* str = "{a:{b:{c:4},d:5},e:\"abc\"}";
+                  ^
+unit_test.c:496:15: note: Shadowed declaration
+  const char *str =
+              ^
+unit_test.c:534:19: note: Shadow variable
+      const char* str = "{a:{b:{c:4},d:5},e:\"abc\"}";
+                  ^
+unit_test.c:535:15: style: Local variable 'd' shadows outer variable [shadowVariable]
+      int c=0,d = 0;
+              ^
+unit_test.c:495:9: note: Shadowed declaration
+  char *d = NULL;
+        ^
+unit_test.c:535:15: note: Shadow variable
+      int c=0,d = 0;
+              ^
+unit_test.c:545:17: style: Local variable 'str' shadows outer variable [shadowVariable]
+    const char *str = "{foo:1, bar:[2,3,4]}";
+                ^
+unit_test.c:496:15: note: Shadowed declaration
+  const char *str =
+              ^
+unit_test.c:545:17: note: Shadow variable
+    const char *str = "{foo:1, bar:[2,3,4]}";
+                ^
+unit_test.c:555:17: style: Local variable 'str' shadows outer variable [shadowVariable]
+    const char *str = "{\"ы\": 123}";
+                ^
+unit_test.c:496:15: note: Shadowed declaration
+  const char *str =
+              ^
+unit_test.c:555:17: note: Shadow variable
+    const char *str = "{\"ы\": 123}";
+                ^
+unit_test.c:563:17: style: Local variable 'str' shadows outer variable [shadowVariable]
+    const char *str = "{a: 123, b: [1,2,3]}";
+                ^
+unit_test.c:496:15: note: Shadowed declaration
+  const char *str =
+              ^
+unit_test.c:563:17: note: Shadow variable
+    const char *str = "{a: 123, b: [1,2,3]}";
+                ^
+unit_test.c:575:17: style: Local variable 'str' shadows outer variable [shadowVariable]
+    const char *str = "{a: \"foo\", b:123}";
+                ^
+unit_test.c:496:15: note: Shadowed declaration
+  const char *str =
+              ^
+unit_test.c:575:17: note: Shadow variable
+    const char *str = "{a: \"foo\", b:123}";
+                ^
+unit_test.c:585:17: style: Local variable 'str' shadows outer variable [shadowVariable]
+    const char *str = " true ";
+                ^
+unit_test.c:496:15: note: Shadowed declaration
+  const char *str =
+              ^
+unit_test.c:585:17: note: Shadow variable
+    const char *str = " true ";
+                ^
+unit_test.c:592:17: style: Local variable 'str' shadows outer variable [shadowVariable]
+    const char *str = " { \"a\": [ {\"b\": 123}, {\"b\": 345} ]} ";
+                ^
+unit_test.c:496:15: note: Shadowed declaration
+  const char *str =
+              ^
+unit_test.c:592:17: note: Shadow variable
+    const char *str = " { \"a\": [ {\"b\": 123}, {\"b\": 345} ]} ";
+                ^
+unit_test.c:608:17: style: Local variable 'str' shadows outer variable [shadowVariable]
+    const char *str = "{a : [\"foo\", \"\", \"a\"] }";
+                ^
+unit_test.c:496:15: note: Shadowed declaration
+  const char *str =
+              ^
+unit_test.c:608:17: note: Shadow variable
+    const char *str = "{a : [\"foo\", \"\", \"a\"] }";
+                ^
+unit_test.c:617:17: style: Local variable 'str' shadows outer variable [shadowVariable]
+    const char *str = "{a : \"foo\\b\\f\\n\\r\\t\\\\\" }";
+                ^
+unit_test.c:496:15: note: Shadowed declaration
+  const char *str =
+              ^
+unit_test.c:617:17: note: Shadow variable
+    const char *str = "{a : \"foo\\b\\f\\n\\r\\t\\\\\" }";
+                ^
+unit_test.c:627:17: style: Local variable 'str' shadows outer variable [shadowVariable]
+    const char *str = "{a : \"привет\" }";
+                ^
+unit_test.c:496:15: note: Shadowed declaration
+  const char *str =
+              ^
+unit_test.c:627:17: note: Shadow variable
+    const char *str = "{a : \"привет\" }";
+                ^
+unit_test.c:635:17: style: Local variable 'str' shadows outer variable [shadowVariable]
+    const char *str = "{a : \"YTI=\" }";
+                ^
+unit_test.c:496:15: note: Shadowed declaration
+  const char *str =
+              ^
+unit_test.c:635:17: note: Shadow variable
+    const char *str = "{a : \"YTI=\" }";
+                ^
+unit_test.c:645:17: style: Local variable 'str' shadows outer variable [shadowVariable]
+    const char *str = "{a : \"0L/RgNC40LLQtdGC0Ys=\" }";
+                ^
+unit_test.c:496:15: note: Shadowed declaration
+  const char *str =
+              ^
+unit_test.c:645:17: note: Shadow variable
+    const char *str = "{a : \"0L/RgNC40LLQtdGC0Ys=\" }";
+                ^
+unit_test.c:656:17: style: Local variable 'str' shadows outer variable [shadowVariable]
+    const char *str = "{a : \"61626320\" }";
+                ^
+unit_test.c:496:15: note: Shadowed declaration
+  const char *str =
+              ^
+unit_test.c:656:17: note: Shadow variable
+    const char *str = "{a : \"61626320\" }";
+                ^
+unit_test.c:666:17: style: Local variable 'str' shadows outer variable [shadowVariable]
+    const char *str = "{a : null }";
+                ^
+unit_test.c:496:15: note: Shadowed declaration
+  const char *str =
+              ^
+unit_test.c:666:17: note: Shadow variable
+    const char *str = "{a : null }";
+                ^
+unit_test.c:674:9: style: Local variable 'a' shadows outer variable [shadowVariable]
+    int a = 0;
+        ^
+unit_test.c:494:7: note: Shadowed declaration
+  int a = 0, b = 0;
+      ^
+unit_test.c:674:9: note: Shadow variable
+    int a = 0;
+        ^
+unit_test.c:675:10: style: Local variable 'b' shadows outer variable [shadowVariable]
+    bool b = false;
+         ^
+unit_test.c:494:14: note: Shadowed declaration
+  int a = 0, b = 0;
+             ^
+unit_test.c:675:10: note: Shadow variable
+    bool b = false;
+         ^
+unit_test.c:677:17: style: Local variable 'str' shadows outer variable [shadowVariable]
+    const char *str = "{\"b\":true,\"c\":false,\"a\":2}";
+                ^
+unit_test.c:496:15: note: Shadowed declaration
+  const char *str =
+              ^
+unit_test.c:677:17: note: Shadow variable
+    const char *str = "{\"b\":true,\"c\":false,\"a\":2}";
+                ^
+unit_test.c:689:17: style: Local variable 'str' shadows outer variable [shadowVariable]
+    const char *str = "{ fa: 1, fb: 2.34, fc: 5.67 }";
+                ^
+unit_test.c:496:15: note: Shadowed declaration
+  const char *str =
+              ^
+unit_test.c:689:17: note: Shadow variable
+    const char *str = "{ fa: 1, fb: 2.34, fc: 5.67 }";
+                ^
+unit_test.c:694:11: style: Local variable 'a' shadows outer variable [shadowVariable]
+    float a = 1.0f, b = 2.34f;
+          ^
+unit_test.c:494:7: note: Shadowed declaration
+  int a = 0, b = 0;
+      ^
+unit_test.c:694:11: note: Shadow variable
+    float a = 1.0f, b = 2.34f;
+          ^
+unit_test.c:694:21: style: Local variable 'b' shadows outer variable [shadowVariable]
+    float a = 1.0f, b = 2.34f;
+                    ^
+unit_test.c:494:14: note: Shadowed declaration
+  int a = 0, b = 0;
+             ^
+unit_test.c:694:21: note: Shadow variable
+    float a = 1.0f, b = 2.34f;
+                    ^
+unit_test.c:871:17: style: Local variable 's1' shadows outer variable [shadowVariable]
+    const char *s1 = "{\"a\":1}";
+                ^
+unit_test.c:816:15: note: Shadowed declaration
+  const char *s1 = "{ \"a\": 123, \"b\": [ 1 ], \"c\": true }";
+              ^
+unit_test.c:871:17: note: Shadow variable
+    const char *s1 = "{\"a\":1}";
+                ^
+nofile:0:0: information: Cppcheck cannot find all the include files (use --check-config for details) [missingIncludeSystem]
+
